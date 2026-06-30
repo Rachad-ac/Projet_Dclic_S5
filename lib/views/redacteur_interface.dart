@@ -23,7 +23,7 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
   @override
   void initState() {
     super.initState();
-    _chargerRedacteurs(); // 36-37. Charger les données au démarrage
+    _chargerRedacteurs(); // Charger les données au démarrage
   }
 
   @override
@@ -34,7 +34,7 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
     super.dispose();
   }
 
-  // 37-38. Récupérer et stocker la liste dans la variable d'état
+  // Récupérer et stocker la liste dans la variable d'état
   Future<void> _chargerRedacteurs() async {
     final data = await _dbManager.getAllRedacteurs();
     setState(() {
@@ -42,7 +42,7 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
     });
   }
 
-  // 21 à 26. Logique de la Partie 5 : Ajouter un rédacteur
+  // Ajouter un rédacteur
   Future<void> _ajouterRedacteur() async {
     if (_nomController.text.isEmpty ||
         _prenomController.text.isEmpty ||
@@ -69,7 +69,7 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
     _chargerRedacteurs();
   }
 
-  // 27 à 31. Logique de la Partie 6 : Modifier via une boîte de dialogue
+  // Modifier via une boîte de dialogue
   void _afficherDialogueModification(Redacteur redacteur) {
     // Nouveaux contrôleurs dédiés à la boîte de dialogue, pré-remplis
     final editNomController = TextEditingController(text: redacteur.nom);
@@ -127,7 +127,7 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
     );
   }
 
-  // 32 à 35. Logique de la Partie 7 : Boîte de dialogue de confirmation de suppression
+  // Boîte de dialogue de confirmation de suppression
   void _confirmerSuppression(int? id) {
     if (id == null) return;
 
@@ -164,9 +164,12 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gestion des rédacteurs', style : TextStyle(color: Colors.white)),
+        title: const Text(
+          'Gestion des rédacteurs',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.pink, 
+        backgroundColor: Colors.pink,
         leading: IconButton(
           icon: const Icon(Icons.menu, color: Colors.white),
           onPressed: () {},
@@ -197,7 +200,7 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
             ),
             const SizedBox(height: 16),
 
-            // 18. Bouton d’ajout de rédacteur
+            // Bouton d’ajout de rédacteur
             ElevatedButton.icon(
               onPressed: _ajouterRedacteur,
               icon: const Icon(Icons.add),
@@ -210,7 +213,7 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
             ),
             const Divider(height: 32),
 
-            // 19. Afficher les rédacteurs dans un ListView.builder
+            // Afficher les rédacteurs dans un ListView.builder
             Expanded(
               child: _redacteurs.isEmpty
                   ? const Center(child: Text('Aucun rédacteur enregistré.'))
@@ -220,12 +223,15 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
                         final redacteur = _redacteurs[index];
                         return Card(
                           child: ListTile(
-                            title: Text('${redacteur.prenom} ${redacteur.nom.toUpperCase()}', style: TextStyle(fontWeight: FontWeight.bold),),
-                            subtitle: Text(redacteur.email ?? ''),
+                            title: Text(
+                              '${redacteur.prenom} ${redacteur.nom.toUpperCase()}',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            subtitle: Text(redacteur.email),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                // 20. Icône de modification (Partie 6)
+                                // Icône de modification
                                 IconButton(
                                   icon: const Icon(
                                     Icons.edit,
@@ -234,7 +240,7 @@ class _RedacteurInterfaceState extends State<RedacteurInterface> {
                                   onPressed: () =>
                                       _afficherDialogueModification(redacteur),
                                 ),
-                                // 20. Icône de suppression (Partie 7)
+                                // Icône de suppression
                                 IconButton(
                                   icon: const Icon(
                                     Icons.delete,
