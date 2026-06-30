@@ -1,5 +1,3 @@
-# app_redacteur
-
 # Atelier n°5 : Gestion des données locales avec SqfLite 📱
   
 **Objectif :** Créer une application Flutter fonctionnelle pour gérer localement les rédacteurs du « Magazine Infos » à l'aide d'une base de données SQLite via le package `sqflite`.
@@ -27,7 +25,7 @@ lib/
 ---
 ## 2. Intefaces cles
 
-### homme interface
+### home interface
 ![alt text](img_home.jpg)
 
 ### add interface
