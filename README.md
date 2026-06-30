@@ -26,16 +26,17 @@ lib/
 ## 2. Intefaces cles
 
 ### home interface
-![alt text](img_home.jpg)
+![alt text](assets/screenshots/img_home.jpg)
+
 
 ### add interface
-![alt text](img_add.jpg)
+![alt text](assets/screenshots/img_add.jpg)
 
 ### edit interface
-![alt text](img_edit.jpg)
+![alt text](assets/screenshots/img_edit.jpg)
 
 ### delete interface
-![alt text](img_delete.jpg)
+![alt text](assets/screenshots/img_delete.jpg)
 
 ---
 
